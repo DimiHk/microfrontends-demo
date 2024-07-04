@@ -1,0 +1,22 @@
+<single-spa-router>
+  <nav>
+    <application name="@ecommerce/ecommerce-header"></application>
+  </nav>
+  <main>
+    <route default>
+      <application name="@ecommerce/ecommerce-home"></application>
+    </route>
+    <route path="/cart">
+      <application name="@ecommerce/ecommerce-cart"></application>
+    </route>
+    <route path="/products">
+      <application name="@ecommerce/ecommerce-products"></application>
+    </route>
+    <route path="/product/:id">
+      <application name="@ecommerce/ecommerce-product-detail"></application>
+    </route>
+  </main>
+  <footer>
+    <application name="@ecommerce/ecommerce-footer"></application>
+  </footer>
+</single-spa-router>

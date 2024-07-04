@@ -1,0 +1,18 @@
+<div class="flex flex-col h-auto shadow w-[240px] border rounded-xl p-4 gap-2">
+  <span class="font-medium">Filters</span>
+  <hr />
+  <span class="font-medium">Categories</span>
+  <div class="flex flex-col gap-2" *ngIf="categories$ | async as categories">
+    <div *ngFor="let category of categories">
+      <a
+        [ngClass]="{
+            'font-thin cursor-pointer': true,
+            'text-green-500 font-medium': routerCategory?.toString() === category.id.toString(),
+          }"
+        [routerLink]="['products']"
+        [queryParams]="{ category: category.id }"
+        >{{ category.name }}</a
+      >
+    </div>
+  </div>
+</div>

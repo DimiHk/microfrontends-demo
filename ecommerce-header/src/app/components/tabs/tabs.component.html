@@ -1,0 +1,15 @@
+<div class="flex gap-6">
+  @for (tab of navigationTabs; track $index) {
+  <div class="relative flex gap-2 items-center leading-[1.25]">
+    <a class="tracking-wide" routerLink="{{ tab.href }}">
+      <i class="{{ tab.icon }} cursor-pointer"></i>
+      <div
+        *ngIf="tab.name === 'Cart' && getCartTotalItems() > 0"
+        class="absolute shadow left-4 bottom-4 bg-red-500 text-white text-[10px] rounded-full h-[50%] w-[100%] flex items-center justify-center px-3 py-3"
+      >
+        {{ getCartTotalItems() }}
+      </div>
+    </a>
+  </div>
+  }
+</div>

@@ -1,0 +1,38 @@
+<div class="continar" *ngFor="let item of cartService.cart">
+  <div class="flex gap-4">
+    <img
+      class="w-[124px] h-[124px] object-cover rounded-xl shadow"
+      src="{{ item.images[0] }}"
+    />
+    <div class="flex grow h-auto justify-between">
+      <div class="flex flex-col gap-3">
+        <span class="truncate font-bolder italic text-xl">{{
+          item.title
+        }}</span>
+        <span class="w-fit font-thin rounded border border-slate-300 px-2">
+          {{ item.category.name }}
+        </span>
+        <span class="font-medium text-xl">${{ item.price }}</span>
+      </div>
+      <div class="flex flex-col justify-between">
+        <span class="self-end" (click)="cartService.removeItem(item.id)">
+          <i class="fa-solid fa-trash-can text-rose-500 cursor-pointer"></i>
+        </span>
+        <div class="flex bg-gray-50 gap-2 border rounded-full">
+          <span
+            class="ml-3 cursor-pointer p-2"
+            (click)="cartService.decrementItem(item.id)"
+            >-</span
+          >
+          <span class="text-slate-700 p-2">{{ item.quantity }}</span>
+          <span
+            class="mr-3 cursor-pointer p-2"
+            (click)="cartService.addItem(item)"
+            >+</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="my-6" />
+</div>

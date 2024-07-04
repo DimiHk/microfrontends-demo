@@ -1,0 +1,45 @@
+<div class="p-6 h-full rounded-xl border border-slate-300">
+  <span class="text-xl italic text-slate-800">Order Summary</span>
+  <div class="flex flex-col gap-3 mt-4">
+    <div class="flex justify-between gap-64">
+      <span class="tracking-wide font-thin text-slate-700">Subtotal</span>
+      <span class="tracking-wide text-lg font-bold"
+        >${{ cartService.getSubTotalPrice() }}</span
+      >
+    </div>
+    <div class="flex justify-between gap-64">
+      <span class="tracking-wide font-thin text-slate-700">Discount</span>
+      <span class="tracking-wide text-lg font-bold text-rose-500"> - $50</span>
+    </div>
+    <div class="flex justify-between gap-64">
+      <span class="tracking-wide font-thin text-slate-700">Delivery Fee</span>
+      <span class="tracking-wide text-lg font-bold">$15</span>
+    </div>
+    <hr />
+    <div class="flex justify-between gap-64">
+      <span class="tracking-wide font-thin text-slate-700">Total</span>
+      <span
+        [ngClass]="{
+            'tracking-wide text-lg font-bold': true,
+            'text-red-500': cartService.getTotalPrice() < 0,
+          }"
+        >${{ cartService.getTotalPrice() }}</span
+      >
+    </div>
+    <div class="flex gap-2">
+      <input
+        type="text"
+        class="w-full px-4 py-2 placeholder:text-sm rounded-xl border-[1px] border-black/10 bg-gray-50 focus:outline-black/5"
+        placeholder="0.00"
+        placeholder="Add Promo Code"
+      />
+
+      <button class="w-[160px] bg-slate-800 rounded-full">
+        <span class="text-white text-sm font-thin">Apply</span>
+      </button>
+    </div>
+    <button class="w-full py-3 px-2 bg-slate-800 rounded-full">
+      <span class="text-white text-sm font-thin">Go to Checkout</span>
+    </button>
+  </div>
+</div>
