@@ -50,3 +50,7 @@ npm install
 npm run (and the command)
 
 ```
+
+### Final step
+
+Done now just visit this url and you're done `http://localhost:9000/`
